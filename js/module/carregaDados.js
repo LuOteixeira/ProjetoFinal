@@ -1,7 +1,7 @@
 /******************************************************************************
  * Objetivo: Manipular dados de um array de livros, utilizando conceito de API
- * Data: 02/10/2024
- * Autor: Marcel
+ * Data: 20/11/2024
+ * Autor: Luan, Caio e Lucas
  * Versão: 1.0
  ******************************************************************************/
 

@@ -1,7 +1,7 @@
 /********************************************************************
  * Objetivo: Sistema de cadastro, edição, exclusão e listagem de filmes
- * Data: 30/10/2024
- * Autor: Marcel
+ * Data: 20/11/2024
+ * Autor: Luan, Caio e Lucas
  * Versão: 1.0
  ********************************************************************/
 
