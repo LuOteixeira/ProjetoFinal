@@ -21,10 +21,14 @@ const setCreateCard = function(dadosfilmes){
     let img                 = document.createElement('img')
     let divCaixaTexto       = document.createElement('div')
     let pCaixaTexto         = document.createElement('p')
+    let botaoComprar        = document.createElement('button')
+    let pBotaoComprar       =document.createElement('p')
+
 
     //Cria um bloco de texto para ser inserido em um elemento HTML
     let textoTitulo     = document.createTextNode(item.nome)
-    let textoParagrafo  = document.createTextNode(item.sinopse)
+    let textoParagrafo  = document.createTextNode(item.valor)
+    let textoBotao      =document.createTextNode('comprar')
 
 
 
@@ -35,6 +39,7 @@ const setCreateCard = function(dadosfilmes){
     img.setAttribute('src', item.image)
     img.setAttribute('alt', item.nome)
     img.setAttribute('title', item.nome)
+    botaoComprar.setAttribute('class',  'botao-comprar' )
     divCaixaTexto.setAttribute('class', 'caixa_texto')
 
 
@@ -48,13 +53,18 @@ const setCreateCard = function(dadosfilmes){
     divCaixaProduto.appendChild(divCaixaTexto)
     divCaixaTexto.appendChild(pCaixaTexto)
     pCaixaTexto.appendChild(textoParagrafo)
+    pCaixaTexto.appendChild(botaoComprar)
+    botaoComprar.appendChild(pBotaoComprar)
+    pBotaoComprar.appendChild(textoBotao)
 
 })
 
 
+
 }
 
-const getDadosLivrosAPI = async function(){
+
+const getDadosFilmesAPI = async function(){
     let url = 'https://app-avaliacao-brh0avd2ahegehac.brazilsouth-01.azurewebsites.net/projeto1/fecaf/listar/filmes'
 
     let response = await fetch(url)
@@ -67,5 +77,27 @@ const getDadosLivrosAPI = async function(){
 //Criando um evento de escuta para a ação de carregar(load) do site
 window.addEventListener('load', function(){
 
-    getDadosLivrosAPI()
+    getDadosFilmesAPI()
 })
+
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
+const carroselInner = document.querySelector('.carrosel-inner');
+const items = document.querySelectorAll('.carrosel-item');
+
+let currentIndex = 0;
+
+function updateCarrosel() {
+  const offset = -currentIndex * 100;
+  carroselInner.style.transform = `translateX(${offset}%)`;
+}
+
+prevButton.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + items.length) % items.length;
+  updateCarrosel();
+});
+
+nextButton.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % items.length;
+  updateCarrosel();
+});

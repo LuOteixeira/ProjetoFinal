@@ -111,7 +111,6 @@ const setCardItens = function(dadosfilmes){
         //Cria os elementos no HTML
         let divDados    = document.createElement('div')
         let divNome    = document.createElement('div')  
-        let divSinopse = document.createElement('div')
         let divValor    = document.createElement('div')
         let divOpcoes   = document.createElement('div')
         let spanEditar  = document.createElement('span')
@@ -120,7 +119,6 @@ const setCardItens = function(dadosfilmes){
         let imgExcluir  = document.createElement('img')
 
         divNome.innerText      = filmes.nome
-        divSinopse.innerText   = filmes.sinopse
         divValor.innerText      = filmes.valor
 
 
@@ -134,7 +132,6 @@ const setCardItens = function(dadosfilmes){
 
         divListDados.appendChild(divDados)
         divDados.appendChild(divNome)
-        divDados.appendChild(divSinopse)
         divDados.appendChild(divValor)
         divDados.appendChild(divOpcoes)
         divOpcoes.appendChild(spanEditar)
